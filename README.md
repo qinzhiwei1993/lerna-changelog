@@ -2,8 +2,8 @@
 
 ## 初始化一个 lerna 仓库
 
-1.这里使用唯一版本号
-`lerna init`
+1.这里使用版本单独控制
+`lerna init --independent`
 
 2.使用 yarn 客户端和 workspaces
 
@@ -45,7 +45,87 @@
 }
 ```
 
-5.使用`lerna-changelog`必须在从github获取[Personal access tokens](https://github.com/settings/tokens)，然后本地环境变量添加`GITHUB_AUTH`。如果是私有仓库选择scope `repo`，如果是公开的仓库选择 scope `public_repo`。
+5.使用`lerna-changelog`必须在从 github 获取[Personal access tokens](https://github.com/settings/tokens)，然后本地环境变量添加`GITHUB_AUTH`。如果是私有仓库选择 scope `repo`，如果是公开的仓库选择 scope `public_repo`。
 
 ![personal access tokens](./images/WX20200915-104411@2x.png)
 
+## 创建一个`package`
+
+1.创建一个`package`
+`lerna create @qinzhiwei1993/element1 --access public --es-module --license MIT`
+
+2.基于 vue+element 封装业务组件
+
+> 添加`vue`和`element-ui`同级相关依赖和本地启动编译执行文件
+
+```json
+// packages/element1/package.json
+"scripts": {
+    "dev": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+  },
+"devDependencies": {
+    "@vue/cli-service": "^4.5.6", // 启动本地服务
+    "less": "^3.12.2",
+    "less-loader": "^7.0.1",
+    "terser-webpack-plugin": "^4.2.0",
+    "vue-template-compiler": "^2.6.12" // 模板编辑器
+  },
+  "peerDependencies": { // 同级vue 和 element-ui依赖
+    "element-ui": "^2.13.2",
+    "view-design": "^4.3.2",
+    "vue": "^2.6.12"
+  }
+```
+
+> 配置本地服务用来启动 example
+
+```javascript
+// packages/element1/vue.config.js
+const path = require("path");
+const TerserPlugin = require("terser-webpack-plugin");
+module.exports = {
+  lintOnSave: false,
+  runtimeCompiler: true,
+  css: { extract: false },
+  devServer: {
+    // 热更新 打开
+    hot: true,
+    host: "localhost",
+    port: 3008,
+  },
+  // 扩展 webpack 配置
+  chainWebpack: (config) => {
+    config.entry("app").clear(); // 清除之前的默认entry
+
+    config
+      .entry("app")
+      .add(path.resolve(__dirname, "./examples/main.js"))
+      .end();
+
+    config.resolve.alias.set("@", path.resolve(__dirname, "./src"));
+  },
+
+  // 打包优化
+  configureWebpack: {
+    optimization: {
+      minimizer: [
+        new TerserPlugin({
+          terserOptions: { compress: { drop_console: true } },
+        }),
+      ],
+    },
+  },
+  productionSourceMap: true,
+};
+```
+
+> 在项目根目录配置脚本，执行`element1/package.json`中的脚本
+
+```javascript
+// package.json
+"scripts": {
+    "dev:element1": "lerna exec --scope @qinzhiwei1993/element1 -- npm run dev"
+}
+
+```

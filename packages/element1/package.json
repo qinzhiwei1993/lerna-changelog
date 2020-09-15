@@ -1,0 +1,52 @@
+{
+  "name": "@qinzhiwei1993/element1",
+  "version": "0.0.0",
+  "description": "A Component Library for Vue.js.",
+  "keywords": [
+    "vue",
+    "component",
+    "element"
+  ],
+  "author": "qinzhiwei1993 <384579070@qq.com>",
+  "homepage": "https://github.com/qinzhiwei1993/lerna-changelog#readme",
+  "license": "MIT",
+  "main": "dist/element1.js",
+  "module": "dist/element1.module.js",
+  "directories": {
+    "lib": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qinzhiwei1993/lerna-changelog.git"
+  },
+  "scripts": {
+    "dev": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/qinzhiwei1993/lerna-changelog/issues"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@vue/babel-preset-app": "^4.5.6",
+    "@vue/cli-service": "^4.5.6",
+    "babel-loader": "^8.1.0",
+    "less": "^3.12.2",
+    "less-loader": "^7.0.1",
+    "terser-webpack-plugin": "^4.2.0",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "peerDependencies": {
+    "element-ui": "^2.13.2",
+    "view-design": "^4.3.2",
+    "vue": "^2.6.12"
+  }
+}
