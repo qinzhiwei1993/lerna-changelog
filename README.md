@@ -44,3 +44,8 @@
   }
 }
 ```
+
+5.使用`lerna-changelog`必须在从github获取[Personal access tokens](https://github.com/settings/tokens)，然后本地环境变量添加`GITHUB_AUTH`。如果是私有仓库选择scope `repo`，如果是公开的仓库选择 scope `public_repo`。
+
+![personal access tokens](./images/WX20200915-104411@2x.png)
+
