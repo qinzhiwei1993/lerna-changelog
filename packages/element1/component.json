@@ -1,0 +1,5 @@
+{
+    "element1-button": "./packages/element1-button/index.js",
+    "element1-container": "./packages/element1-container/index.js",
+    "element1-layout": "./packages/element1-layout/index.js"
+}

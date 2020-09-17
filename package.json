@@ -5,11 +5,17 @@
     "packages/*"
   ],
   "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "build:file": "node scripts/build/bin/build-entry.js --src ./packages/element1",
     "dev:element1": "lerna exec --scope @qinzhiwei1993/element1 -- npm run dev"
   },
   "devDependencies": {
+    "chalk": "^4.1.0",
+    "json-templater": "^1.2.0",
     "lerna": "^3.22.1",
-    "lerna-changelog": "^1.0.1"
+    "lerna-changelog": "^1.0.1",
+    "minimist": "^1.2.5",
+    "uppercamelcase": "^3.0.0"
   },
   "dependencies": {
     "element-ui": "^2.13.2",

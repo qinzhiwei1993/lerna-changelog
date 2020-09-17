@@ -2,10 +2,10 @@
 
 ## 初始化一个 lerna 仓库
 
-1.这里使用版本单独控制
+1.这里使用**单独版本控制**
 `lerna init --independent`
 
-2.使用 yarn 客户端和 workspaces
+2.使用`yarn`客户端和`workspaces`
 
 ```json
 // package.json
@@ -66,8 +66,8 @@
   },
 "devDependencies": {
     "@vue/cli-service": "^4.5.6", // 启动本地服务
-    "less": "^3.12.2",
-    "less-loader": "^7.0.1",
+    "sass": "^1.26.10",
+    "sass-loader": "^10.0.2",
     "terser-webpack-plugin": "^4.2.0",
     "vue-template-compiler": "^2.6.12" // 模板编辑器
   },
@@ -129,3 +129,15 @@ module.exports = {
 }
 
 ```
+
+> element1业务组件打包输出
+
+1.使用element原有打包方式
+
+  `scripts/build/bin/build-entry.js` 自动生成element1/src/index.js文件内容
+
+
+lerna-changelog
+conventional-changelog
+
+.version
