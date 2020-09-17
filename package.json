@@ -6,7 +6,7 @@
   ],
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "build:file": "node scripts/build/bin/build-entry.js --src ./packages/element1",
+    "build:file": "node scripts/build/bin/build-entry.js --package ./packages/element1",
     "dev:element1": "lerna exec --scope @qinzhiwei1993/element1 -- npm run dev"
   },
   "devDependencies": {

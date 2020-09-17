@@ -7,16 +7,16 @@ const render = require("json-templater/string");
 const uppercamelcase = require("uppercamelcase");
 const endOfLine = require("os").EOL;
 
-const SRC = argv.src;
+const PACKAGE = argv.package;
 
-const packagesDir = path.resolve(process.cwd(), SRC, "./packages");
+const packagesDir = path.resolve(process.cwd(), PACKAGE, "./packages");
 
 const ComponentNames = fs
   .readdirSync(packagesDir)
   .filter((item) => item !== "styles");
 
-const OUTPUT_PATH = path.resolve(process.cwd(), SRC, './src/index.js');
-const VERSION = require(path.resolve(process.cwd(), SRC, "./package.json")).version;
+const OUTPUT_PATH = path.resolve(process.cwd(), PACKAGE, './src/index.js');
+const VERSION = require(path.resolve(process.cwd(), PACKAGE, "./package.json")).version;
 var IMPORT_TEMPLATE =
   "import {{name}} from '../packages/{{package}}/index.js';";
 var INSTALL_COMPONENT_TEMPLATE = "  {{name}}";
