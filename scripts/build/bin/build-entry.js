@@ -1,22 +1,26 @@
-const minimist = require("minimist");
+
+
+
+// const minimist = require("minimist");
 const chalk = require('chalk');
 const path = require("path");
 const fs = require("fs");
-const argv = minimist(process.argv);
+// const argv = minimist(process.argv);
 const render = require("json-templater/string");
 const uppercamelcase = require("uppercamelcase");
 const endOfLine = require("os").EOL;
 
-const PACKAGE = argv.package;
+// const PACKAGE = argv.package;
+const cwdPath = process.cwd()
 
-const packagesDir = path.resolve(process.cwd(), PACKAGE, "./packages");
+const packagesDir = path.resolve(cwdPath, "./packages");
 
 const ComponentNames = fs
   .readdirSync(packagesDir)
   .filter((item) => item !== "styles");
 
-const OUTPUT_PATH = path.resolve(process.cwd(), PACKAGE, './src/index.js');
-const VERSION = require(path.resolve(process.cwd(), PACKAGE, "./package.json")).version;
+const OUTPUT_PATH = path.resolve(cwdPath, './src/index.js');
+const VERSION = require(path.resolve(cwdPath, "./package.json")).version;
 var IMPORT_TEMPLATE =
   "import {{name}} from '../packages/{{package}}/index.js';";
 var INSTALL_COMPONENT_TEMPLATE = "  {{name}}";

@@ -136,7 +136,8 @@ module.exports = {
 
   `scripts/build/bin/build-entry.js` 自动生成element1/src/index.js文件内容
 
-
+升级版本号
+打包构建
 lerna-changelog
 conventional-changelog
 

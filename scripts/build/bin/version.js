@@ -1,6 +1,43 @@
-var fs = require('fs');
-var path = require('path');
-var version = process.env.VERSION || require('../../package.json').version;
-var content = { '1.4.13': '1.4', '2.0.11': '2.0', '2.1.0': '2.1', '2.2.2': '2.2', '2.3.9': '2.3', '2.4.11': '2.4', '2.5.4': '2.5', '2.6.3': '2.6', '2.7.2': '2.7', '2.8.2': '2.8', '2.9.2': '2.9', '2.10.1': '2.10', '2.11.1': '2.11', '2.12.0': '2.12' };
-if (!content[version]) content[version] = '2.13';
-fs.writeFileSync(path.resolve(__dirname, '../../examples/versions.json'), JSON.stringify(content));
+
+const path = require('path')
+const cwdPath = process.cwd()
+const fs = require('fs')
+// const semver = require('semver')
+const { exec } = require('child_process')
+const chalk = require('chalk')
+
+const pkgPath = path.resolve(cwdPath, './package.json')
+const pkgJson = require(pkgPath)
+const pkgName = pkgJson.name
+
+const log = console.log
+const success = chalk.green.bold
+const error = chalk.red.bold
+
+const CMD = `npm view ${pkgName} version`
+
+
+const whitePackage = (path, str, options, callback) => {
+  fs.writeFile(path, str, options, callback)
+}
+
+const changeVersion = () => {
+  exec(CMD, (err, stdout, stderr) => {
+    if (err) {
+      log(error('查询版本号失败，请手动查询', err.message))
+      // process.exit(0)
+    } else {
+      pkgJson.version = stdout
+      whitePackage(pkgPath, newJson, (err) => {
+        if (err) {
+          log(error('新增失败', err))
+        } else {
+          log(success(`修改版本号成功！从 ${stdout} 修改为 ${newVersion}`))
+        }
+      })
+    }
+  })
+}
+
+
+changeVersion()

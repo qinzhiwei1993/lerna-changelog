@@ -17,7 +17,8 @@
     "test": "__tests__"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "publishConfig": {
     "access": "public"
@@ -28,7 +29,7 @@
   },
   "scripts": {
     "dev": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build:file": "node ../../scripts/build/bin/version.js && node ../../scripts/build/bin/build-entry.js",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
