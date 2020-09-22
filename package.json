@@ -7,7 +7,7 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "dev:element1": "lerna exec --scope @qinzhiwei1993/element1 -- npm run dev",
-    "build:f": "lerna exec -- npm run build:file"
+    "build:version": "(lerna exec -- npm run build:version) && git add . && git commit -m 'update remote version' && lerna version"
   },
   "devDependencies": {
     "chalk": "^4.1.0",

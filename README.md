@@ -69,7 +69,7 @@
     "sass": "^1.26.10",
     "sass-loader": "^10.0.2",
     "terser-webpack-plugin": "^4.2.0",
-    "vue-template-compiler": "^2.6.12" // 模板编辑器
+    "vue-template-compiler": "^2.6.12" // vue模板编译
   },
   "peerDependencies": { // 同级vue 和 element-ui依赖
     "element-ui": "^2.13.2",

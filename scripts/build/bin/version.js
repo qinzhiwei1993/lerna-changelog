@@ -24,8 +24,9 @@ const whitePackage = (path, str, options, callback) => {
 const changeVersion = () => {
   exec(CMD, (err, stdout, stderr) => {
     if (err) {
-      log(error('查询版本号失败，请手动查询', err.message))
-      // process.exit(0)
+      log(error('查询版本号失败，请手动查询', err))
+      // log(error('查询版本号失败，请手动查询', err.message))
+      process.exit(0) // 不阻止进程执行
     } else {
       pkgJson.version = stdout
       whitePackage(pkgPath, newJson, (err) => {
