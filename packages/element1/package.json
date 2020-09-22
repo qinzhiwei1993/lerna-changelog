@@ -29,7 +29,8 @@
   },
   "scripts": {
     "dev": "vue-cli-service serve",
-    "build:file": "node ../../scripts/build/bin/version.js && node ../../scripts/build/bin/build-entry.js",
+    "build:entry": "node ../../scripts/build/bin/build-entry.js",
+    "build:version": "node ../../scripts/build/bin/version.js && node ../../scripts/build/bin/build-entry.js && git add . && git commit -m 'update remote version'",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
