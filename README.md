@@ -150,10 +150,14 @@ module.exports = {
 
 
 
-## 基于[Commitizen](https://github.com/commitizen/cz-cli)和[conventional-changelog](https://github.com/ajoslin/conventional-changelog)`生成CHANGELOG.md`
+## 基于[Commitizen](https://github.com/commitizen/cz-cli)、[commitlint](https://github.com/conventional-changelog/commitlint)和[conventional-changelog](https://github.com/ajoslin/conventional-changelog)`生成CHANGELOG.md`
 
-1.安装本地commitizen
+1.安装本地commitizen，采用命令行交互的方式提交commit信息
+
 `npm install -D commitizen`
+
+![commitizen](./images/WX20200925-165607@2x.png)
+
 
 2.使项目支持 Angular 的 Commit message 格式，添加适配器
 `commitizen init cz-conventional-changelog --save-dev --save-exact`
@@ -171,33 +175,31 @@ module.exports = {
 }
 ```
 
-> `validate-commit-msg`注意事项: 这种方式已经被官方启用，使用[commitlint](https://github.com/conventional-changelog/commitlint)代替
+> `validate-commit-msg`注意事项: 这种方式已经被官方启用，使用[commitlint](https://github.com/conventional-changelog/commitlint)代替: 1.遵循格式: `<type>(<scope>): <subject>`。2.本地添加.vcmrc文件配置校验文件
+  ```json
+  {
+    // 接受的type类型
+    "types": ["feat", "fix", "docs", "style", "refactor", "perf", "test", "build", "ci", "chore", "revert"],
+    // scope相关
+    "scope": {
+      "required": false,
+      "allowed": ["*"],
+      "validate": false,
+      "multiple": false
+    },
+    "warnOnFail": false, // true时报错但是会提交
+    "maxSubjectLength": 100,
+    "subjectPattern": ".+", // subject部分内容检验 regExp格式
+    "subjectPatternErrorMsg": "subject does not match subject pattern!",
+    "helpMessage": "pattern: <type>(<scope>): <subject>", // 错误提示信息
+    "autoFix": false
+  }
+  ```
 
-1.遵循格式: <type>(<scope>): <subject>
-2.本地添加.vcmrc文件配置校验文件
-```json
-{
-  // 接受的type类型
-  "types": ["feat", "fix", "docs", "style", "refactor", "perf", "test", "build", "ci", "chore", "revert"],
-  // scope相关
-  "scope": {
-    "required": false,
-    "allowed": ["*"],
-    "validate": false,
-    "multiple": false
-  },
-  "warnOnFail": false, // true时报错但是会提交
-  "maxSubjectLength": 100,
-  "subjectPattern": ".+", // subject部分内容检验 regExp格式
-  "subjectPatternErrorMsg": "subject does not match subject pattern!",
-  "helpMessage": "pattern: <type>(<scope>): <subject>", // 错误提示信息
-  "autoFix": false
-}
-```
+4.使用`commitlint`代替`validate-commit-msg`，校验上传commit-msg是否符合规范
 
-4.使用`commitlint`代替`validate-commit-msg`
-
-```json
+```bash
+# 版本要求
 Node.js LTS >= 10.21.0
 git >= 2.13.2
 ```
@@ -225,6 +227,35 @@ echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitl
 ```
 
 ![commitlint test](./images/WX20200925-163014@2x.png)
+
+5.安装[conventional-changelog](https://github.com/ajoslin/conventional-changelog)生成CHANGELOG.md
+
+如果你的所有 Commit 都符合 Angular 格式，那么发布新版本时， Change log 就可以用脚本自动生成
+
+生成的文档包括以下三个部分：
+
+- New features
+- Bug fixes
+- Breaking changes.
+
+每个部分都会罗列相关的 commit ，并且有指向这些 commit 的链接。当然，生成的文档允许手动修改，所以发布前，你还可以添加其他内容
+
+具体使用方案如下：
+
+```bash
+$ npm install -g conventional-changelog
+$ cd my-project
+$ conventional-changelog -p angular -i CHANGELOG.md -w
+```
+上面命令不会覆盖以前的 Change log，只会在CHANGELOG.md的头部加上自从上次发布以来的变动。
+
+如果你想生成所有发布的 Change log，要改为运行下面的命令
+
+```bash
+$ conventional-changelog -p angular -i CHANGELOG.md -w -r 0
+```
+
+
 
 
 打包构建
