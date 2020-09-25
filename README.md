@@ -158,6 +158,17 @@ module.exports = {
 2.使项目支持 Angular 的 Commit message 格式，添加适配器
 `commitizen init cz-conventional-changelog --save-dev --save-exact`
 
+3.安装husky校验提交commit-msg
+```json
+{
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+    }
+  }
+}
+```
+
 打包构建
 
 lerna-changelog

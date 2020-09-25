@@ -11,10 +11,21 @@
     "adapter": "commitizen init cz-conventional-changelog --save-dev --save-exact",
     "commit": "cz"
   },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
   "devDependencies": {
     "chalk": "^4.1.0",
     "commitizen": "^4.2.1",
     "cz-conventional-changelog": "^3.3.0",
+    "husky": "^4.3.0",
     "json-templater": "^1.2.0",
     "lerna": "^3.22.1",
     "lerna-changelog": "^1.0.1",
@@ -25,10 +36,5 @@
     "element-ui": "^2.13.2",
     "view-design": "^4.3.2",
     "vue": "^2.6.12"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }
