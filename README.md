@@ -190,7 +190,7 @@ module.exports = {
   "maxSubjectLength": 100,
   "subjectPattern": ".+", // subject部分内容检验 regExp格式
   "subjectPatternErrorMsg": "subject does not match subject pattern!",
-  "helpMessage": "<type>(<scope>): <subject>",
+  "helpMessage": "pattern: <type>(<scope>): <subject>", // 错误提示信息
   "autoFix": false
 }
 ```
