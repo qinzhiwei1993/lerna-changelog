@@ -158,16 +158,23 @@ module.exports = {
 2.使项目支持 Angular 的 Commit message 格式，添加适配器
 `commitizen init cz-conventional-changelog --save-dev --save-exact`
 
-3.安装husky校验提交commit-msg
+3.安装`husky`和[validate-commit-msg](https://github.com/conventional-changelog-archived-repos/validate-commit-msg)校验提交commit-msg
+
 ```json
 {
   "husky": {
     "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true", // 对git commit拦截，使项目维护人员统一使用commitizen
+      "commitmsg": "validate-commit-msg"
     }
   }
 }
 ```
+
+> `validate-commit-msg`注意事项: 
+
+1.遵循格式: <type>(<scope>): <subject>
+2.本地添加.vcmrc文件配置校验文件
 
 
 

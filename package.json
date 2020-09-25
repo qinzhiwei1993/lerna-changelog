@@ -13,7 +13,8 @@
   },
   "husky": {
     "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook"
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+      "commitmsg": "validate-commit-msg"
     }
   },
   "config": {
@@ -30,7 +31,8 @@
     "lerna": "^3.22.1",
     "lerna-changelog": "^1.0.1",
     "minimist": "^1.2.5",
-    "uppercamelcase": "^3.0.0"
+    "uppercamelcase": "^3.0.0",
+    "validate-commit-msg": "^2.14.0"
   },
   "dependencies": {
     "element-ui": "^2.13.2",
