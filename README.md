@@ -1,4 +1,9 @@
+
+
 # 记录使用 Lerna 构建多包存储库的全流程
+
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 
 ## 初始化一个 lerna 仓库
 
@@ -25,7 +30,7 @@
 3.安装项目的`lerna`和`lerna-changelog`
 `npm install -D lerna lerna-changelog`
 
-4.配置`lerna-changelog`标签
+4.配置`lerna-changelog`标签，后期会使用该标签给merged分支打标记，并生成`CHANGELOG.md`内容
 
 ```json
 {
@@ -98,7 +103,7 @@ module.exports = {
   chainWebpack: (config) => {
     config.entry("app").clear(); // 清除之前的默认entry
 
-    config
+    config // 自定义入口文件
       .entry("app")
       .add(path.resolve(__dirname, "./examples/main.js"))
       .end();
@@ -130,15 +135,35 @@ module.exports = {
 
 ```
 
+> 添加基于element组件的业务组件 `/packages/element1/packages`
+
+> 自动生成element1组件库的入口文件，入口文件位置在`/packages/element1/src/index.js`
+
+`scripts/build/bin/build-entry.js`
+
+> 获取当前package版本号，赋予本地
+
+`scripts/build/bin/version.js`
+
 > element1业务组件打包输出
 
-1.使用element原有打包方式
 
-  `scripts/build/bin/build-entry.js` 自动生成element1/src/index.js文件内容
 
-升级版本号
+
+## 基于[Commitizen](https://github.com/commitizen/cz-cli)和[conventional-changelog](https://github.com/ajoslin/conventional-changelog)`生成CHANGELOG.md`
+
+1.安装本地commitizen
+`npm install -D commitizen`
+
+2.使项目支持 Angular 的 Commit message 格式，添加适配器
+`commitizen init cz-conventional-changelog --save-dev --save-exact`
+
 打包构建
+
 lerna-changelog
+
+http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html
 conventional-changelog
 
 .version
+
