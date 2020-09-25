@@ -197,6 +197,11 @@ module.exports = {
 
 4.使用`commitlint`代替`validate-commit-msg`
 
+```json
+Node.js LTS >= 10.21.0
+git >= 2.13.2
+```
+
 ```bash
 # Install commitlint cli and conventional config
 npm install --save-dev @commitlint/{config-conventional,cli}
@@ -204,7 +209,7 @@ npm install --save-dev @commitlint/{config-conventional,cli}
 npm install --save-dev @commitlint/config-conventional @commitlint/cli
 
 # Configure commitlint to use conventional config
-# 使用默认配置即可
+# 在默认@commitlint/config-conventional基础上做部分变更
 echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
 ```
 
