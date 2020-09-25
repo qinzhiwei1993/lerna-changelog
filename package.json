@@ -14,7 +14,7 @@
   "husky": {
     "hooks": {
       "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
-      "commit-msg": "node test.js"
+      "commit-msg": "validate-commit-msg"
     }
   },
   "config": {
