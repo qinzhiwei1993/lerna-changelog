@@ -6,7 +6,7 @@
     "validate": false,
     "multiple": false
   },
-  "warnOnFail": false,
+  "warnOnFail": true,
   "maxSubjectLength": 100,
   "subjectPattern": ".+",
   "subjectPatternErrorMsg": "subject does not match subject pattern!",
