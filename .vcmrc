@@ -7,7 +7,7 @@
     "multiple": false
   },
   "warnOnFail": true,
-  "maxSubjectLength": 1,
+  "maxSubjectLength": 100,
   "subjectPattern": "<type>: <subject>",
   "subjectPatternErrorMsg": "subject does not match subject pattern!",
   "helpMessage": "<type>(<scope>): <subject>",
