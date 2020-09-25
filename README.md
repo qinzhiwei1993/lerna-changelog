@@ -171,7 +171,7 @@ module.exports = {
 }
 ```
 
-> `validate-commit-msg`注意事项: 
+> `validate-commit-msg`注意事项: 这种方式已经被官方启用，使用[commitlint](https://github.com/conventional-changelog/commitlint)代替
 
 1.遵循格式: <type>(<scope>): <subject>
 2.本地添加.vcmrc文件配置校验文件
@@ -195,6 +195,29 @@ module.exports = {
 }
 ```
 
+4.使用`commitlint`代替`validate-commit-msg`
+
+```bash
+# Install commitlint cli and conventional config
+npm install --save-dev @commitlint/{config-conventional,cli}
+# For Windows:
+npm install --save-dev @commitlint/config-conventional @commitlint/cli
+
+# Configure commitlint to use conventional config
+# 使用默认配置即可
+echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
+```
+
+```json
+// 结合husky 做git hooks拦截
+{
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
+```
 
 
 打包构建
