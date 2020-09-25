@@ -165,7 +165,7 @@ module.exports = {
   "husky": {
     "hooks": {
       "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true", // 对git commit拦截，使项目维护人员统一使用commitizen
-      "commitmsg": "validate-commit-msg"
+      "commit-msg": "validate-commit-msg"
     }
   }
 }
