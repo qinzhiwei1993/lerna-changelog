@@ -1,0 +1,1 @@
+console.log('测试是否运行hooks')
