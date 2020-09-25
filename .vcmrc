@@ -8,7 +8,7 @@
   },
   "warnOnFail": true,
   "maxSubjectLength": 100,
-  "subjectPattern": ".+",
+  "subjectPattern": "<type>: <subject>",
   "subjectPatternErrorMsg": "subject does not match subject pattern!",
   "helpMessage": "",
   "autoFix": false
