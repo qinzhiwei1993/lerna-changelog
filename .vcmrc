@@ -6,9 +6,9 @@
     "validate": false,
     "multiple": false
   },
-  "warnOnFail": true,
+  "warnOnFail": false,
   "maxSubjectLength": 100,
-  "subjectPattern": "<type>: <subject>",
+  "subjectPattern": ".+",
   "subjectPatternErrorMsg": "subject does not match subject pattern!",
   "helpMessage": "<type>(<scope>): <subject>",
   "autoFix": false

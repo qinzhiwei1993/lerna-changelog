@@ -175,6 +175,25 @@ module.exports = {
 
 1.遵循格式: <type>(<scope>): <subject>
 2.本地添加.vcmrc文件配置校验文件
+```json
+{
+  // 接受的type类型
+  "types": ["feat", "fix", "docs", "style", "refactor", "perf", "test", "build", "ci", "chore", "revert"],
+  // scope相关
+  "scope": {
+    "required": false,
+    "allowed": ["*"],
+    "validate": false,
+    "multiple": false
+  },
+  "warnOnFail": false, // true时报错但是会提交
+  "maxSubjectLength": 100,
+  "subjectPattern": ".+", // subject部分内容检验 regExp格式
+  "subjectPatternErrorMsg": "subject does not match subject pattern!",
+  "helpMessage": "<type>(<scope>): <subject>",
+  "autoFix": false
+}
+```
 
 
 
