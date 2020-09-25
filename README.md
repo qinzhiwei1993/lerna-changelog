@@ -219,6 +219,8 @@ echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitl
 }
 ```
 
+![commitlint test](./images/WX20200925-163014@2x.png)
+
 
 打包构建
 
