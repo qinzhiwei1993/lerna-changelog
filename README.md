@@ -1,13 +1,17 @@
-# 记录使用 Lerna 构建多包存储库的全流程
+# Lerna 构建多包存储库实战（二）
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
+## 前言
+
 ## 初始化一个 lerna 仓库
 
-1.这里使用**单独版本控制**
+### 1.1 这里使用**单独版本控制**
 `lerna init --independent`
 
-2.使用`yarn`客户端和`workspaces`
+### 1.2 使用`yarn`客户端和`workspaces`
+
+对依赖的`npm package`进行集中管理，所有的依赖全部安装到根目录下的`node_modules`中（除了可执行文件必须安装在当前package中）。减少相同package的安装时间和空间。
 
 ```json
 // package.json
@@ -24,17 +28,19 @@
 }
 ```
 
-3.安装项目的`lerna`和`lerna-changelog`
+### 1.3 安装项目的`lerna`和`lerna-changelog`
 `npm install -D lerna lerna-changelog`
 
-4.配置`lerna-changelog`标签，后期会使用该标签给 merged 分支打标记，并生成`CHANGELOG.md`内容
+`lerna-changelog`是用来基于`pull request`提交时打的`tag`标签生成变更日志的`CHANGELOG.md`。用于开源项目中，合并他人提交的`pr`。如果只是团队内部项目，可以使用下面的`conventional-changelog`
+
+### 1.4 配置`lerna-changelog`标签，后期会使用该标签给 merged 分支打标记，并生成`CHANGELOG.md`内容
 
 ```json
 {
     "changelog": {
-        "repo": "vuejs/vue-cli",
-        "nextVersion": "Unreleased",
-        "labels": {
+        "repo": "vuejs/vue-cli", // github 地址
+        "nextVersion": "Unreleased", // 未发布时标记的版本内容
+        "labels": { // 支持的标签和对应的title
             "PR: New Feature": ":rocket: New Features",
             "PR: Breaking Change": ":boom: Breaking Changes",
             "PR: Bug Fix": ":bug: Bug Fix",
@@ -47,18 +53,43 @@
 }
 ```
 
-5.使用`lerna-changelog`必须在从 github 获取[Personal access tokens](https://github.com/settings/tokens)，然后本地环境变量添加`GITHUB_AUTH`。如果是私有仓库选择 scope `repo`，如果是公开的仓库选择 scope `public_repo`。
+> 输出示例
+
+```md
+## Unreleased (2018-05-24)
+
+#### :bug: Bug Fix
+* [#198](https://github.com/my-org/my-repo/pull/198) Avoid an infinite loop ([@helpful-hacker](https://github.com/helpful-hacker))
+
+#### :house: Internal
+* [#183](https://github.com/my-org/my-repo/pull/183) Standardize error messages ([@careful-coder](https://github.com/careful-coder))
+
+#### Commiters: 2
+- Helpful Hacker ([@helpful-hacker](https://github.com/helpful-hacker))
+- [@careful-coder](https://github.com/careful-coder)
+```
+
+> 输出效果
+
+- breaking (💥 Breaking Change)
+- enhancement (🚀 Enhancement)
+- bug (🐛 Bug Fix)
+- documentation (📝 Documentation)
+- internal (🏠 Internal)
+
+### 1.5 使用`lerna-changelog`必须在从 github 获取[Personal access tokens](https://github.com/settings/tokens)，然后本地环境变量添加`GITHUB_AUTH`。如果是私有仓库选择 scope `repo`，如果是公开的仓库选择 scope `public_repo`。
 
 ![personal access tokens](./images/WX20200915-104411@2x.png)
 
 ## 创建一个`package`
 
-1.创建一个`package`
+### 2.1 创建一个`package`
+
 `lerna create @qinzhiwei1993/element1 --access public --es-module --license MIT`
 
-2.基于 vue+element 封装业务组件
+### 2.2 基于 vue+element 封装业务组件
 
-> 添加`vue`和`element-ui`同级相关依赖和本地启动编译执行文件
+#### 2.2.1 添加`vue`和`element-ui`同级相关依赖和本地启动编译执行文件
 
 ```json
 // packages/element1/package.json
@@ -80,7 +111,7 @@
   }
 ```
 
-> 配置本地服务用来启动 example
+#### 2.2.2 配置本地服务用来启动 `packages/element1/example`
 
 ```javascript
 // packages/element1/vue.config.js
@@ -122,7 +153,7 @@ module.exports = {
 }
 ```
 
-> 在项目根目录配置脚本，执行`element1/package.json`中的脚本
+#### 2.2.3 在项目根目录配置脚本，执行`element1/package.json`中的脚本
 
 ```javascript
 // package.json
@@ -132,30 +163,88 @@ module.exports = {
 
 ```
 
-> 添加基于 element 组件的业务组件 `/packages/element1/packages`
+#### 2.2.4 添加基于 element 组件的业务组件 `/packages/element1/packages`
 
-> 自动生成 element1 组件库的入口文件，入口文件位置在`/packages/element1/src/index.js`
+#### 2.2.5 自动生成 element1 组件库的入口文件，入口文件位置在`/packages/element1/src/index.js`
 
 `scripts/build/bin/build-entry.js`
 
-> 获取当前 package 版本号，赋予本地
+#### 2.2.6 获取当前 package 版本号，赋予本地
+
+由于`lerna version`更新版本号是基本地`lerna.json`或者每个`packages`下`package.json`中的版本号，所以在多人协作多分支的情况下，会存在版本不统一的情况，所以这里是拿到当前`packcage`npm上的最新版本号，然后在运行`lerna version`。
 
 `scripts/build/bin/version.js`
 
-> element1 业务组件打包输出
+#### 2.2.7 element1 业务组件打包输出
 
 ## 基于[Commitizen](https://github.com/commitizen/cz-cli)、[commitlint](https://github.com/conventional-changelog/commitlint)和[conventional-changelog](https://github.com/ajoslin/conventional-changelog)`生成CHANGELOG.md`
 
-1.安装本地 commitizen，采用命令行交互的方式提交 commit 信息
+### 3.1 再说整体的方案之前，再介绍下`commit message`的整体格式
+
+每次提交，Commit message 都包括三个部分：Header，Body 和 Footer。
+
+```
+<type>(<scope>): <subject>
+// 空一行
+<body>
+// 空一行
+<footer>
+```
+其中，Header 是必需的，Body 和 Footer 可以省略。
+
+
+#### 3.1.1 Header
+
+Header部分只有一行，包括三个字段：`type`（必需）、`scope`（可选）和`subject`（必需）
+
+> （1） `type`用于说明 commit 的类别
+
+```
+feat：新功能（feature）
+fix：修补bug
+docs：文档（documentation）
+style： 格式（不影响代码运行的变动）
+refactor：重构（即不是新增功能，也不是修改bug的代码变动）
+test：增加测试
+chore：构建过程或辅助工具的变动
+...
+```
+
+> （2）`scope`用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同。
+
+> （3）`subject`是 commit 目的的简短描述，不超过50个字符
+
+#### 3.1.2 Body
+
+Body 部分是对本次 commit 的详细描述，可以分成多行
+
+#### 3.1.3 Footer
+
+> （1）不兼容变动
+
+如果当前代码与上一个版本不兼容，则 Footer 部分以`BREAKING CHANGE`开头，后面是对变动的描述、以及变动理由和迁移方法
+
+> （2）关闭 Issue
+
+如果当前 commit 针对某个issue，那么可以在 Footer 部分关闭这个 issue
+
+```
+Closes #123, #245, #992
+```
+
+
+
+### 3.2 安装本地 commitizen，采用命令行交互的方式提交 commit 信息
 
 `npm install -D commitizen`
 
 ![commitizen](./images/WX20200925-165607@2x.png)
 
-2.使项目支持 Angular 的 Commit message 格式，添加适配器
+### 3.3 使项目支持 Angular 的 Commit message 格式，添加适配器
+
 `commitizen init cz-conventional-changelog --save-dev --save-exact`
 
-3.安装`husky`和[validate-commit-msg](https://github.com/conventional-changelog-archived-repos/validate-commit-msg)校验提交 commit-msg
+### 3.4 安装`husky`和[validate-commit-msg](https://github.com/conventional-changelog-archived-repos/validate-commit-msg)校验提交 commit-msg
 
 ```json
 {
@@ -202,7 +291,7 @@ module.exports = {
 }
 ```
 
-4.使用`commitlint`代替`validate-commit-msg`，校验上传 commit-msg 是否符合规范
+### 3.5 使用`commitlint`代替`validate-commit-msg`，校验上传 commit-msg 是否符合规范
 
 ```bash
 # 版本要求
@@ -234,7 +323,7 @@ echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitl
 
 ![commitlint test](./images/WX20200925-163014@2x.png)
 
-5.安装[conventional-changelog](https://github.com/ajoslin/conventional-changelog)生成 CHANGELOG.md
+### 3.6 安装[conventional-changelog](https://github.com/ajoslin/conventional-changelog)生成 CHANGELOG.md
 
 如果你的所有 Commit 都符合 Angular 格式，那么发布新版本时， Change log 就可以用脚本自动生成
 
@@ -262,6 +351,8 @@ $ conventional-changelog -p angular -i CHANGELOG.md -w
 ```bash
 $ conventional-changelog -p angular -i CHANGELOG.md -w -r 0
 ```
+
+![conventional-changelog](./images/WX20200927-103854@2x.png)
 
 ```bash
 # cli Options
