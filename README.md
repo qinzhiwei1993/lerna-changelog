@@ -69,13 +69,6 @@
 - [@careful-coder](https://github.com/careful-coder)
 ```
 
-> 输出效果
-
-- breaking (💥 Breaking Change)
-- enhancement (🚀 Enhancement)
-- bug (🐛 Bug Fix)
-- documentation (📝 Documentation)
-- internal (🏠 Internal)
 
 ### 1.5 使用`lerna-changelog`必须在从 github 获取[Personal access tokens](https://github.com/settings/tokens)，然后本地环境变量添加`GITHUB_AUTH`。如果是私有仓库选择 scope `repo`，如果是公开的仓库选择 scope `public_repo`。
 
@@ -179,8 +172,10 @@ module.exports = {
 
 ## 基于[Commitizen](https://github.com/commitizen/cz-cli)、[commitlint](https://github.com/conventional-changelog/commitlint)和[conventional-changelog](https://github.com/ajoslin/conventional-changelog)`生成CHANGELOG.md`
 
-### 3.1 再说整体的方案之前，再介绍下`commit message`的整体格式
+### 3.1 再说整体的方案之前，再介绍下 `Angular commit message`规范
 
+
+[Angular 规范](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.greljkmo14y0)是目前使用最广的写法，比较合理和系统化，并且有配套的工具
 每次提交，Commit message 都包括三个部分：Header，Body 和 Footer。
 
 ```
@@ -327,7 +322,7 @@ echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitl
 
 如果你的所有 Commit 都符合 Angular 格式，那么发布新版本时， Change log 就可以用脚本自动生成
 
-生成的文档包括以下三个部分：
+生成的文档包括以下三个部分（也可以根据项目情况自定义）：
 
 -   New features
 -   Bug fixes
