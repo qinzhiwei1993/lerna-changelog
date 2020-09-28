@@ -1,6 +1,7 @@
 {
   "name": "root",
   "private": true,
+  "version": "0.0.0",
   "workspaces": [
     "packages/*"
   ],
@@ -10,7 +11,8 @@
     "build:version": "(lerna exec -- npm run build:version) && git add . && git commit -m 'update remote version' && lerna version",
     "adapter": "commitizen init cz-conventional-changelog --save-dev --save-exact",
     "commit": "cz",
-    "changelog": "conventional-changelog -p custom-config -i CHANGELOG.md -s -r 0"
+    "changelog": "conventional-changelog -p custom-config -i CHANGELOG.md -s -r 0",
+    "release": "standard-version"
   },
   "husky": {
     "hooks": {
@@ -42,6 +44,7 @@
     "lerna": "^3.22.1",
     "lerna-changelog": "^1.0.1",
     "minimist": "^1.2.5",
+    "standard-version": "^9.0.0",
     "uppercamelcase": "^3.0.0",
     "validate-commit-msg": "^2.14.0"
   },
