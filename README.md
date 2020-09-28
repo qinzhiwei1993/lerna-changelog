@@ -388,6 +388,11 @@ $ conventional-changelog -p angular -i CHANGELOG.md -w -r 0
     --commit-path             Generate a changelog scoped to a specific directory
 ```
 
+
+standard-version
+semantic-release
+
+
 打包构建
 
 lerna-changelog
@@ -396,3 +401,8 @@ http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html
 conventional-changelog
 
 .version
+
+
+## 参考文献
+
+1. 阮一峰老师的[Commit message 和 Change log 编写指南](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
