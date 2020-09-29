@@ -1,7 +1,7 @@
 {
   "name": "root",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "workspaces": [
     "packages/*"
   ],
@@ -16,7 +16,6 @@
   },
   "husky": {
     "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
