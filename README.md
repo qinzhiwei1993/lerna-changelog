@@ -7,11 +7,12 @@
 ## 初始化一个 lerna 仓库
 
 ### 1.1 这里使用**单独版本控制**
+
 `lerna init --independent`
 
 ### 1.2 使用`yarn`客户端和`workspaces`
 
-对依赖的`npm package`进行集中管理，所有的依赖全部安装到根目录下的`node_modules`中（除了可执行文件必须安装在当前package中）。减少相同package的安装时间和空间。
+对依赖的`npm package`进行集中管理，所有的依赖全部安装到根目录下的`node_modules`中（除了可执行文件必须安装在当前 package 中）。减少相同 package 的安装时间和空间。
 
 ```json
 // package.json
@@ -29,6 +30,7 @@
 ```
 
 ### 1.3 安装项目的`lerna`和`lerna-changelog`
+
 `npm install -D lerna lerna-changelog`
 
 `lerna-changelog`是用来基于`pull request`提交时打的`tag`标签生成变更日志的`CHANGELOG.md`。用于开源项目中，合并他人提交的`pr`。如果只是团队内部项目，可以使用下面的`conventional-changelog`
@@ -40,7 +42,8 @@
     "changelog": {
         "repo": "vuejs/vue-cli", // github 地址
         "nextVersion": "Unreleased", // 未发布时标记的版本内容
-        "labels": { // 支持的标签和对应的title
+        "labels": {
+            // 支持的标签和对应的title
             "PR: New Feature": ":rocket: New Features",
             "PR: Breaking Change": ":boom: Breaking Changes",
             "PR: Bug Fix": ":bug: Bug Fix",
@@ -59,16 +62,18 @@
 ## Unreleased (2018-05-24)
 
 #### :bug: Bug Fix
-* [#198](https://github.com/my-org/my-repo/pull/198) Avoid an infinite loop ([@helpful-hacker](https://github.com/helpful-hacker))
+
+-   [#198](https://github.com/my-org/my-repo/pull/198) Avoid an infinite loop ([@helpful-hacker](https://github.com/helpful-hacker))
 
 #### :house: Internal
-* [#183](https://github.com/my-org/my-repo/pull/183) Standardize error messages ([@careful-coder](https://github.com/careful-coder))
+
+-   [#183](https://github.com/my-org/my-repo/pull/183) Standardize error messages ([@careful-coder](https://github.com/careful-coder))
 
 #### Commiters: 2
-- Helpful Hacker ([@helpful-hacker](https://github.com/helpful-hacker))
-- [@careful-coder](https://github.com/careful-coder)
-```
 
+-   Helpful Hacker ([@helpful-hacker](https://github.com/helpful-hacker))
+-   [@careful-coder](https://github.com/careful-coder)
+```
 
 ### 1.5 使用`lerna-changelog`必须在从 github 获取[Personal access tokens](https://github.com/settings/tokens)，然后本地环境变量添加`GITHUB_AUTH`。如果是私有仓库选择 scope `repo`，如果是公开的仓库选择 scope `public_repo`。
 
@@ -164,7 +169,7 @@ module.exports = {
 
 #### 2.2.6 获取当前 package 版本号，赋予本地
 
-由于`lerna version`更新版本号是基本地`lerna.json`或者每个`packages`下`package.json`中的版本号，所以在多人协作多分支的情况下，会存在版本不统一的情况，所以这里是拿到当前`packcage`npm上的最新版本号，然后在运行`lerna version`。
+由于`lerna version`更新版本号是基本地`lerna.json`或者每个`packages`下`package.json`中的版本号，所以在多人协作多分支的情况下，会存在版本不统一的情况，所以这里是拿到当前`packcage`npm 上的最新版本号，然后在运行`lerna version`。
 
 `scripts/build/bin/version.js`
 
@@ -173,7 +178,6 @@ module.exports = {
 ## 基于[Commitizen](https://github.com/commitizen/cz-cli)、[commitlint](https://github.com/conventional-changelog/commitlint)和[conventional-changelog](https://github.com/ajoslin/conventional-changelog)`生成CHANGELOG.md`
 
 ### 3.1 再说整体的方案之前，再介绍下 `Angular commit message`规范
-
 
 [Angular 规范](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.greljkmo14y0)是目前使用最广的写法，比较合理和系统化，并且有配套的工具
 每次提交，Commit message 都包括三个部分：Header，Body 和 Footer。
@@ -185,12 +189,12 @@ module.exports = {
 // 空一行
 <footer>
 ```
-其中，Header 是必需的，Body 和 Footer 可以省略。
 
+其中，Header 是必需的，Body 和 Footer 可以省略。
 
 #### 3.1.1 Header
 
-Header部分只有一行，包括三个字段：`type`（必需）、`scope`（可选）和`subject`（必需）
+Header 部分只有一行，包括三个字段：`type`（必需）、`scope`（可选）和`subject`（必需）
 
 > （1） `type`用于说明 commit 的类别
 
@@ -207,7 +211,7 @@ chore：构建过程或辅助工具的变动
 
 > （2）`scope`用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同。
 
-> （3）`subject`是 commit 目的的简短描述，不超过50个字符
+> （3）`subject`是 commit 目的的简短描述，不超过 50 个字符
 
 #### 3.1.2 Body
 
@@ -221,13 +225,11 @@ Body 部分是对本次 commit 的详细描述，可以分成多行
 
 > （2）关闭 Issue
 
-如果当前 commit 针对某个issue，那么可以在 Footer 部分关闭这个 issue
+如果当前 commit 针对某个 issue，那么可以在 Footer 部分关闭这个 issue
 
 ```
 Closes #123, #245, #992
 ```
-
-
 
 ### 3.2 安装本地 commitizen，采用命令行交互的方式提交 commit 信息
 
@@ -388,10 +390,24 @@ $ conventional-changelog -p angular -i CHANGELOG.md -w -r 0
     --commit-path             Generate a changelog scoped to a specific directory
 ```
 
-
 standard-version
 semantic-release
 
+commit message 提交规范、生成 CHANGELOG.md 和 tag/release 发布解决方案：
+
+1.lerna + commitzen + commitlint + conventional-changelog
+2.commitzen + commitlint + standard-version + semantic-release + conventional-changelog
+
+```json
+{
+    "husky": {
+        "hooks": {
+            // 这个钩子可能会阻塞standard-version semantic-release的运行，最好去掉改拦截，主动的去使用commitzen
+            "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+        }
+    }
+}
+```
 
 打包构建
 
@@ -401,7 +417,6 @@ http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html
 conventional-changelog
 
 .version
-
 
 ## 参考文献
 
