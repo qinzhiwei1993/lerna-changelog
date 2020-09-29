@@ -418,6 +418,120 @@ conventional-changelog
 
 .version
 
+## 插件介绍
+
+### [Standard Version](https://github.com/conventional-changelog/standard-version)
+
+基于[semver](https://semver.org/)自动管理版本和基于`Angular 规范`的[Conventional Commits.](https://conventionalcommits.org/)生成 CHANGELOG
+
+该工具做了一下四件事：
+
+1. 查看当前版本，并返回最近的`tag`
+2. 基于`commit msg`，自动管理版本号，也就是升级版本
+3. 创建一次新的提交，然后更新 CHANGELOG
+4. 基于新的版本号创建`tag`
+
+#### 使用方式
+
+安装开发依赖
+
+`npm i --save-dev standard-version`
+
+然后在`package.json`中添加脚本
+
+```json
+{
+    "scripts": {
+        "release": "standard-version"
+    }
+}
+```
+
+#### 自定义配置方式
+
+可以通过配置的方式，自定义哪些类型`commit`打印在 CHANGELOG.md 文件当中，已经文件中部分内容的格式化方式
+
+1. 在`package.json`中添加`standard-version`字段
+2. 新建`.versionrc`, `.versionrc.json` 或者 `.versionrc.js`文件，如果是`.versionrc.js`的话必须到处一个对象
+
+#### 自定义配置
+
+```js
+// 自定义内容
+{
+    "header": "Changelog", // CHANGELOG.md文件的title
+    "types": [
+        // type:提交类型
+        // section: 在CHANGELOG.md中对应的标题
+        // hidden: 当前类型是否打印在CHANGELOG.md中
+        { "type": "feat", "section": "✨ Features | 新功能" },
+        { "type": "fix", "section": "🐛 Bug Fixes | Bug 修复" },
+        { "type": "chore", "hidden": true },
+        { "type": "docs", "hidden": true },
+        { "type": "style", "hidden": true },
+        { "type": "refactor", "hidden": true },
+        {
+            "type": "perf",
+            "section": "⚡ Performance Improvements | 性能优化",
+            "hidden": true
+        },
+        { "type": "test", "hidden": true }
+    ],
+    "preMajor": false,
+    "commitUrlFormat": "{{host}}/{{owner}}/{{repository}}/commit/{{hash}}",
+    "compareUrlFormat": "{{host}}/{{owner}}/{{repository}}/compare/{{previousTag}}...{{currentTag}}",
+    "issueUrlFormat": "{{host}}/{{owner}}/{{repository}}/issues/{{id}}",
+    "userUrlFormat": "{{host}}/{{user}}",
+    // 此次commit msg
+    "releaseCommitMessageFormat": "chore(release): {{currentTag}}",
+    // issue前缀
+    "issuePrefixes": ["#"]
+}
+```
+
+#### 命令行使用
+
+1. 第一次使用，不涉及版本升级的情况，会基于`package.json`中`version`打`tag`
+
+`npm run release -- --first-release`
+
+2. 常规使用
+
+`npm run release`
+
+当创建一个新的发版后，可以推送`tag`到远程`git`仓库，然后通过`npm publish`或者`npm publish --tag next`发布包
+
+3. 预发版本
+
+3.1 例如当前版本是`1.0.0`，如果想发一个测试修正版本
+
+`npm run release -- --prerelease`
+
+此时版本号更新为`1.0.1-0`.
+
+3.2 想自定义预发版的标签
+
+`npm run release -- --prerelease beta`
+
+此时版本号更新为`1.0.1-beta.0`
+
+4. 自定义版本号
+
+4.1 当前版本: `1.0.0`
+
+`npm run release -- --release-as major(minor, patch)`
+
+更新版本 `2.0.0`
+
+4.2 当前版本: `1.0.0`
+
+`npm run release -- --release-as 1.2.0`
+
+当前版本: `1.2.0`
+
+**更多细节请参考 standard-version github**
+
 ## 参考文献
 
 1. 阮一峰老师的[Commit message 和 Change log 编写指南](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
+2. [standard-version](https://github.com/conventional-changelog/standard-version)
