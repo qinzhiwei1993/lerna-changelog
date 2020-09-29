@@ -517,17 +517,21 @@ conventional-changelog
 
 4. 自定义版本号
 
-4.1 当前版本: `1.0.0`
+```json
+当前版本: `1.0.0`
 
 `npm run release -- --release-as major(minor, patch)`
 
 更新版本 `2.0.0`
+```
 
-4.2 当前版本: `1.0.0`
+```json
+当前版本: `1.0.0`
 
-`npm run release -- --release-as 1.2.0`
+npm run release -- --release-as 1.2.0
 
-当前版本: `1.2.0`
+更新版本: `1.2.0`
+```
 
 **更多细节请参考 standard-version github**
 
