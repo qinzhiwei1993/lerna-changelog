@@ -503,34 +503,44 @@ conventional-changelog
 
 3. 预发版本
 
-3.1 例如当前版本是`1.0.0`，如果想发一个测试修正版本
+```bash
 
-`npm run release -- --prerelease`
+# 例如当前版本是`1.0.0`，如果想发一个测试修正版本
 
-此时版本号更新为`1.0.1-0`.
+npm run release -- --prerelease
 
-3.2 想自定义预发版的标签
+# 此时版本号更新为`1.0.1-0`.
+
+```
+
+```bash
+
+# 想自定义预发版的标签
 
 `npm run release -- --prerelease beta`
 
-此时版本号更新为`1.0.1-beta.0`
+# 此时版本号更新为`1.0.1-beta.0`
+
+```
+
+
 
 4. 自定义版本号
 
-```json
-当前版本: `1.0.0`
+```bash
+# 当前版本: `1.0.0`
 
 `npm run release -- --release-as major(minor, patch)`
 
-更新版本 `2.0.0`
+# 更新版本 `2.0.0`
 ```
 
-```json
-当前版本: `1.0.0`
+```bash
+# 当前版本: `1.0.0`
 
 npm run release -- --release-as 1.2.0
 
-更新版本: `1.2.0`
+# 更新版本: `1.2.0`
 ```
 
 **更多细节请参考 standard-version github**
