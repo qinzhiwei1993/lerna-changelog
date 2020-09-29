@@ -1,5 +1,5 @@
 LERNA-CHANGELOG
-### 0.0.2 (2020-09-29)
+## 0.0.0 (2020-09-29)
 
 
 ### ⚠ BREAKING CHANGES
@@ -16,7 +16,3 @@ LERNA-CHANGELOG
 * 更改部分commitlint配置 ([4527a3b](https://github.com/qinzhiwei1993/lerna-changelog/commit/4527a3b9008f50b21deff250be49aea0624e8dfa))
 * 添加conventional-changelog ([a3b8ad4](https://github.com/qinzhiwei1993/lerna-changelog/commit/a3b8ad46d8dd4ef81789a0aa414ac58da60b7ec1))
 * 项目安装conventional-changelog-cli ([79ffb62](https://github.com/qinzhiwei1993/lerna-changelog/commit/79ffb62890b194fb21754496b4168f1cf1afdfbe))
-
-### [0.0.2](https://github.com/qinzhiwei1993/lerna-changelog/compare/v0.0.1...v0.0.2) (2020-09-29)
-
-### [0.0.1](https://github.com/qinzhiwei1993/lerna-changelog/compare/v0.0.0...v0.0.1) (2020-09-29)
