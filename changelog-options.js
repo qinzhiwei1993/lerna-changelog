@@ -1,3 +1,10 @@
+/****
+ * 
+ * conventional-changelog自定义配置选项
+ * 
+ * 使用方式: conventional-changelog -c changelog-options.js -i CHANGELOG.md -s -r 0 
+ */
+
 const compareFunc = require('compare-func')
 console.log('合并')
 module.exports = {

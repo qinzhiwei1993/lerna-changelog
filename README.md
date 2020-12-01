@@ -254,7 +254,7 @@ Closes #123, #245, #992
 }
 ```
 
-> `validate-commit-msg`注意事项: 这种方式已经被官方启用，使用[commitlint](https://github.com/conventional-changelog/commitlint)代替: 1.遵循格式: `<type>(<scope>): <subject>`。2.本地添加.vcmrc 文件配置校验文件
+> `validate-commit-msg`注意事项: 这种方式已经被官方弃用，使用[commitlint](https://github.com/conventional-changelog/commitlint)代替: 1.遵循格式: `<type>(<scope>): <subject>`。2.本地添加.vcmrc 文件配置校验文件
 
 ```json
 {
@@ -389,6 +389,8 @@ $ conventional-changelog -p angular -i CHANGELOG.md -w -r 0
     -t, --tag-prefix          Tag prefix to consider when reading the tags
     --commit-path             Generate a changelog scoped to a specific directory
 ```
+
+
 
 standard-version
 semantic-release
