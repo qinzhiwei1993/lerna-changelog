@@ -24,7 +24,7 @@ module.exports = {
         ], // scope小写
         'subject-case': [
             2,
-            'never',
+            'always',
             [
                 'lower-case', // default
                 'upper-case', // UPPERCASE
