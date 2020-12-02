@@ -1,5 +1,11 @@
+## 0.3.0 (2020-12-02)
+
+
+
+
 ## 0.4.0 (2020-12-02)
 
+* feat: conventional-changelog使用文档补充 ([d9a8ec7](https://github.com/qinzhiwei1993/lerna-changelog/commit/d9a8ec7))
 
 
 

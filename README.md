@@ -190,6 +190,10 @@ conventional-changelog -p angular -i CHANGELOG.md -s -r 0
 
 The reason why you should commit and tag after conventionalChangelog is that the CHANGELOG should be included in the new release, hence gitRawCommitsOpts.from defaults to the latest semver tag.
 
+
+**`conventional-changelog`默认会优先读取`tag`标记，然后根据`tag`生成`CHANGELOG.md`。如果`tag`不存在会读取`package.json`中的版本信息**
+
+
 ```json
 // 使用npm scripts
 {
