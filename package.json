@@ -1,7 +1,7 @@
 {
   "name": "root",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.4.0",
   "workspaces": [
     "packages/*"
   ],
@@ -12,7 +12,7 @@
     "adapter": "commitizen init cz-conventional-changelog --save-dev --save-exact",
     "commit": "cz",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-    "changelog-custom": "conventional-changelog -c changelog-options.js -i CHANGELOG.md -s -r 0"
+    "changelog-custom": "conventional-changelog -n changelog-options.js -i CHANGELOG.md -s -r 0"
   },
   "husky": {
     "hooks": {

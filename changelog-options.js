@@ -6,13 +6,13 @@
  */
 
 const compareFunc = require('compare-func')
-console.log('合并')
+
 module.exports = {
     writerOpts: {
         transform: (commit, context) => {
             let discard = true
             const issues = []
-
+            
             commit.notes.forEach(note => {
                 note.title = 'BREAKING CHANGES'
                 discard = false

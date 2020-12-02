@@ -1,22 +1,17 @@
+## 0.4.0 (2020-12-02)
+
+
+
+
+## 0.2.0 (2020-12-01)
+
+* feat: conventional-changelog测试context参数 ([455366f](https://github.com/qinzhiwei1993/lerna-changelog/commit/455366f))
+
+
+
 ## 0.1.0 (2020-09-29)
 
-* chore(release): 0.0.0 ([cb70090](https://github.com/qinzhiwei1993/lerna-changelog/commit/cb70090))
-* chore(release): 0.0.0 ([85b4129](https://github.com/qinzhiwei1993/lerna-changelog/commit/85b4129))
-* chore(release): 0.0.0 ([d7a57ac](https://github.com/qinzhiwei1993/lerna-changelog/commit/d7a57ac))
-* chore(release): 0.0.0 ([2caa0f7](https://github.com/qinzhiwei1993/lerna-changelog/commit/2caa0f7))
-* chore(release): 0.0.0 ([f3eface](https://github.com/qinzhiwei1993/lerna-changelog/commit/f3eface))
-* chore(release): 0.0.0 ([5b705bd](https://github.com/qinzhiwei1993/lerna-changelog/commit/5b705bd))
-* chore(release): 0.0.0 ([cf7b804](https://github.com/qinzhiwei1993/lerna-changelog/commit/cf7b804))
-* chore(release): 0.0.1 ([a1e8560](https://github.com/qinzhiwei1993/lerna-changelog/commit/a1e8560))
-* chore(release): 0.0.2 ([915fc8d](https://github.com/qinzhiwei1993/lerna-changelog/commit/915fc8d))
-* chore(release): 0.0.2 ([51b0b70](https://github.com/qinzhiwei1993/lerna-changelog/commit/51b0b70))
-* chore(release): 0.1.0 ([53c36ba](https://github.com/qinzhiwei1993/lerna-changelog/commit/53c36ba))
-* docs: rEADME ([607b360](https://github.com/qinzhiwei1993/lerna-changelog/commit/607b360))
-* docs: rEADME 更新 ([f16f74c](https://github.com/qinzhiwei1993/lerna-changelog/commit/f16f74c))
-* docs: 准备适用standard-version和semantic-release ([8be1275](https://github.com/qinzhiwei1993/lerna-changelog/commit/8be1275))
-* docs: 补充commitlint部分readme ([15e89e5](https://github.com/qinzhiwei1993/lerna-changelog/commit/15e89e5))
-* docs: 重新梳理文档 ([ef4f4ac](https://github.com/qinzhiwei1993/lerna-changelog/commit/ef4f4ac))
-* docs(standard-version): 补充standard-version说明和使用方式 ([a79856c](https://github.com/qinzhiwei1993/lerna-changelog/commit/a79856c))
+* feat(commitizen): 安装commitizen并测试第一次提交 ([958c11a](https://github.com/qinzhiwei1993/lerna-changelog/commit/958c11a))
 * feat: commitlint引入 第1次测试 ([4e6bb96](https://github.com/qinzhiwei1993/lerna-changelog/commit/4e6bb96))
 * feat: 安装husky校验commit-msg ([94939ed](https://github.com/qinzhiwei1993/lerna-changelog/commit/94939ed))
 * feat: 安装validate-commit-msg 第10次校验 ([560d538](https://github.com/qinzhiwei1993/lerna-changelog/commit/560d538))
@@ -24,33 +19,10 @@
 * feat: 更改部分commitlint配置 ([4527a3b](https://github.com/qinzhiwei1993/lerna-changelog/commit/4527a3b))
 * feat: 添加conventional-changelog ([a3b8ad4](https://github.com/qinzhiwei1993/lerna-changelog/commit/a3b8ad4))
 * feat: 项目安装conventional-changelog-cli ([79ffb62](https://github.com/qinzhiwei1993/lerna-changelog/commit/79ffb62))
-* feat(commitizen): 安装commitizen并测试第一次提交 ([958c11a](https://github.com/qinzhiwei1993/lerna-changelog/commit/958c11a))
 * feat(standard-version): 准备更新standard-version相关使用文档 ([e9cc565](https://github.com/qinzhiwei1993/lerna-changelog/commit/e9cc565))
-* test: 测试standard-version ([4d45e98](https://github.com/qinzhiwei1993/lerna-changelog/commit/4d45e98))
-* element1 原有打包方式构建 ([f6f6e26](https://github.com/qinzhiwei1993/lerna-changelog/commit/f6f6e26))
-* element1 原有打包方式构建 ([36b7cf0](https://github.com/qinzhiwei1993/lerna-changelog/commit/36b7cf0))
-* feature:element1 ([988d84d](https://github.com/qinzhiwei1993/lerna-changelog/commit/988d84d))
-* lerna init ([922786c](https://github.com/qinzhiwei1993/lerna-changelog/commit/922786c))
-* lerna init ([cf68ab1](https://github.com/qinzhiwei1993/lerna-changelog/commit/cf68ab1))
-* update remote version ([16e8828](https://github.com/qinzhiwei1993/lerna-changelog/commit/16e8828))
-* update remote version ([bd8d5db](https://github.com/qinzhiwei1993/lerna-changelog/commit/bd8d5db))
-* 安装validate-commit-msg 第9次校验 ([9773944](https://github.com/qinzhiwei1993/lerna-changelog/commit/9773944))
-* 安装validate-commit-msg 第一次校验 ([38418e3](https://github.com/qinzhiwei1993/lerna-changelog/commit/38418e3))
-* 安装validate-commit-msg 第七次校验 ([225318d](https://github.com/qinzhiwei1993/lerna-changelog/commit/225318d))
-* 安装validate-commit-msg 第三次校验 ([f2ecf04](https://github.com/qinzhiwei1993/lerna-changelog/commit/f2ecf04))
-* 安装validate-commit-msg 第二次校验 ([6a81442](https://github.com/qinzhiwei1993/lerna-changelog/commit/6a81442))
-* 安装validate-commit-msg 第五次校验 ([926c1f7](https://github.com/qinzhiwei1993/lerna-changelog/commit/926c1f7))
-* 安装validate-commit-msg 第八次校验 ([22654f9](https://github.com/qinzhiwei1993/lerna-changelog/commit/22654f9))
-* 安装validate-commit-msg 第六次校验 ([049ce66](https://github.com/qinzhiwei1993/lerna-changelog/commit/049ce66))
-* 安装validate-commit-msg 第四次校验 ([7d7a49a](https://github.com/qinzhiwei1993/lerna-changelog/commit/7d7a49a))
-* 测试是否运行hooks ([a8b5d82](https://github.com/qinzhiwei1993/lerna-changelog/commit/a8b5d82))
-* 测试校验是否成功 ([b0de5f4](https://github.com/qinzhiwei1993/lerna-changelog/commit/b0de5f4))
-* 测试校验是否成功 第三次 ([de72a16](https://github.com/qinzhiwei1993/lerna-changelog/commit/de72a16))
-* 测试校验是否成功 第二次 ([86f61d1](https://github.com/qinzhiwei1993/lerna-changelog/commit/86f61d1))
-* 自动输出组件导出文件 ([ec4cfe2](https://github.com/qinzhiwei1993/lerna-changelog/commit/ec4cfe2))
 
 
-### BREAKING CHANGE
+### BREAKING CHANGES
 
 * 测试breaking changes
 
