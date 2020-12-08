@@ -322,6 +322,10 @@ echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitl
 
 ### 3.6 安装[conventional-changelog](https://github.com/ajoslin/conventional-changelog)生成 CHANGELOG.md
 
+---
+**[自定义输出方案](https://github.com/qinzhiwei1993/lerna-changelog/blob/master/conventional-changelog.md)**
+
+
 如果你的所有 Commit 都符合 Angular 格式，那么发布新版本时， Change log 就可以用脚本自动生成
 
 生成的文档包括以下三个部分（也可以根据项目情况自定义）：
@@ -551,3 +555,5 @@ npm run release -- --release-as 1.2.0
 
 1. 阮一峰老师的[Commit message 和 Change log 编写指南](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
 2. [standard-version](https://github.com/conventional-changelog/standard-version)
+3. https://blog.cmyr.ltd/archives/caf24092.html
+4. https://juejin.cn/post/6844903888072654856#heading-7

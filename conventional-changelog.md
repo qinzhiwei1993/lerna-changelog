@@ -1,5 +1,7 @@
 # conventional-changelog
 
+根据本地的`git meta`信息生成`changelog`
+
 ### 读源码顺序
 
 -   `conventional-changelog-cli` 参数定义，获取入参，执行读取、写入
