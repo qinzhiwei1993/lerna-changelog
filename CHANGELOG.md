@@ -1,3 +1,11 @@
+Changelog
+### [0.3.1](https://github.com/qinzhiwei1993/lerna-changelog/compare/v0.3.0...v0.3.1) (2020-12-08)
+
+
+### ✨ Features | 新功能
+
+* 补充文档 ([21efb95](https://github.com/qinzhiwei1993/lerna-changelog/commit/21efb952f020944ba0bd766c78e48932e6f079b8))
+
 # [0.3.0](https://github.com/qinzhiwei1993/lerna-changelog/compare/v0.2.0...v0.3.0) (2020-12-02)
 
 
@@ -36,6 +44,3 @@
 ### BREAKING CHANGES
 
 * 测试breaking changes
-
-
-
