@@ -17,6 +17,8 @@
 4. 创建一个新的 commit（包含`bumpFiles`和更新的`CHANGELOG`）
 5. 基于新的版本创建`tag`
 
+![standard-version核心逻辑](./images/1607478840503.jpg)
+
 ### 快速开始
 
 1. 安装依赖
