@@ -14,7 +14,7 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "changelog-custom": "conventional-changelog -p angular -n changelog-options.js -i CHANGELOG.md -s -r 0",
     "release": "standard-version",
-    "github-releaser": "conventional-github-releaser -p angular -n changelog-options.js -i CHANGELOG.md -s -r 0"
+    "github-releaser": "conventional-github-releaser -p angular -n changelog-options.js -i CHANGELOG.md -s -r 0 -t a20867e939298c063063ced23918dd551c443807"
   },
   "husky": {
     "hooks": {

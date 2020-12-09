@@ -21,3 +21,5 @@ $ conventional-github-releaser -p angular
 }
 ```
 
+
+GitHubError: Validation Failed (422) 报错
