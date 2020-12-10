@@ -1,7 +1,7 @@
 {
   "name": "root",
   "private": true,
-  "version": "0.3.4",
+  "version": "0.3.5",
   "workspaces": [
     "packages/*"
   ],
@@ -14,7 +14,7 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "changelog-custom": "conventional-changelog -p angular -n changelog-options.js -i CHANGELOG.md -s -r 0",
     "release": "standard-version",
-    "github-releaser": "conventional-github-releaser -p angular -n changelog-options.js -i CHANGELOG.md -s -r 0 -t a20867e939298c063063ced23918dd551c443807"
+    "github-releaser": "conventional-github-releaser -p angular -n changelog-options.js -i CHANGELOG.md -s -t e3c6d36e80b8faba29f44e91c5778a8271e83291"
   },
   "husky": {
     "hooks": {
