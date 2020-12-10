@@ -22,4 +22,8 @@ $ conventional-github-releaser -p angular
 ```
 
 
-GitHubError: Validation Failed (422) 报错
+`GitHubError: Validation Failed (422) 报错`
+
+[Github Api](https://developer.github.com/v3/#client-errors)
+
+由于github已存在当前版本的release，所以会报错。只有在首次始终时`-r 0`，之后必须去掉，以免会读取本地所有的`tag`然后尝试去发布
