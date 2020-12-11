@@ -5,6 +5,7 @@
   "workspaces": [
     "packages/*"
   ],
+  
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "dev:element1": "lerna exec --scope @qinzhiwei1993/element1 -- npm run dev",
